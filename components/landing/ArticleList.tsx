@@ -11,27 +11,17 @@ import { BumpLink } from 'components/ui/BumpLink'
 export type ArticleListPropsT = {
   title?: string
   viewAllHref?: string
-  viewAllTitleText?: string
   articles: Array<FeaturedLink>
 }
 
-export const ArticleList = ({
-  title,
-  viewAllHref,
-  viewAllTitleText,
-  articles,
-}: ArticleListPropsT) => {
+export const ArticleList = ({ title, viewAllHref, articles }: ArticleListPropsT) => {
   return (
     <>
       {title && (
         <div className="mb-4 d-flex flex-items-baseline">
           <h3 className={cx('f4 text-semibold')}>{title}</h3>
           {viewAllHref && (
-            <Link
-              href={viewAllHref}
-              className="ml-4"
-              {...(viewAllTitleText ? { title: viewAllTitleText } : {})}
-            >
+            <Link href={viewAllHref} className="ml-4">
               View all <ArrowRightIcon size={14} className="v-align-middle" />
             </Link>
           )}
